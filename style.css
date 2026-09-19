@@ -1,0 +1,584 @@
+/* Dr. Shaikh's Clinic — stylesheet
+   Type: Zilla Slab (headings) + Plus Jakarta Sans (body)
+   Palette: heritage teal + ledger cream + marigold accent
+*/
+
+:root {
+  --ink: #1c211f;
+  --muted: #5c655f;
+  --paper: #f7f2e9;
+  --paper-deep: #efe7d6;
+  --teal: #0f3733;
+  --teal-deep: #0a2624;
+  --teal-soft: #d9e6e2;
+  --marigold: #c17a24;
+  --marigold-deep: #96591a;
+  --line: rgba(28, 33, 31, 0.14);
+  --line-on-teal: rgba(247, 242, 233, 0.18);
+  --radius: 2px;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Zilla Slab", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--marigold);
+  outline-offset: 3px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--marigold);
+  color: #fff9f0;
+}
+.btn-primary:hover { background: var(--marigold-deep); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+.btn-ghost:hover { background: rgba(0,0,0,0.04); }
+
+.btn-ghost-light {
+  background: transparent;
+  border-color: var(--line-on-teal);
+  color: var(--paper);
+}
+.btn-ghost-light:hover { background: rgba(255,255,255,0.06); }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(247, 242, 233, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-family: "Zilla Slab", serif;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-est {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.main-nav a {
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.main-nav a:hover { color: var(--marigold-deep); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(180deg, var(--teal) 0%, var(--teal-deep) 100%);
+  color: var(--paper);
+  padding: 72px 0 0;
+  overflow: hidden;
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: end;
+}
+
+.hero-copy { padding-bottom: 64px; }
+
+.eyebrow {
+  font-size: 0.85rem;
+  color: var(--marigold);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 4.6vw, 3.9rem);
+  max-width: 11ch;
+}
+
+.hero-lede {
+  margin-top: 22px;
+  max-width: 46ch;
+  font-size: 1.08rem;
+  color: rgba(247, 242, 233, 0.86);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+
+.hero-photo {
+  position: relative;
+  align-self: end;
+}
+
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.hero-stats {
+  display: flex;
+  border-top: 1px solid var(--line-on-teal);
+  margin-top: 56px;
+}
+
+.hero-stats .wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+}
+
+.stat {
+  padding: 22px 28px;
+  border-right: 1px solid var(--line-on-teal);
+}
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: "Zilla Slab", serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--marigold);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(247, 242, 233, 0.72);
+  margin-top: 2px;
+}
+
+/* Ticker */
+.ticker-band {
+  background: var(--marigold);
+  color: var(--teal-deep);
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+}
+
+.ticker-track {
+  display: inline-flex;
+  gap: 40px;
+  padding: 12px 0;
+  animation: scrollTicker 32s linear infinite;
+}
+
+.ticker-track span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@keyframes scrollTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Section shell */
+.section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  margin-bottom: 48px;
+}
+
+.folio {
+  font-family: "Zilla Slab", serif;
+  font-size: 0.95rem;
+  color: var(--marigold-deep);
+  border: 1px solid var(--marigold-deep);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.section-head h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  max-width: 20ch;
+}
+
+.section-kicker {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* Physician section */
+.physician-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+}
+
+.physician-copy p {
+  font-size: 1.05rem;
+  color: #303632;
+  max-width: 58ch;
+}
+
+.trait-list {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 32px;
+}
+
+.trait h3 {
+  font-size: 1.02rem;
+  margin-bottom: 6px;
+}
+
+.trait p {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.id-card {
+  background: var(--teal);
+  color: var(--paper);
+  border-radius: var(--radius);
+  padding: 34px;
+}
+
+.id-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--line-on-teal);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.id-card-name {
+  font-family: "Zilla Slab", serif;
+  font-size: 1.3rem;
+}
+
+.id-card-reg {
+  font-size: 0.8rem;
+  color: rgba(247,242,233,0.65);
+  margin-top: 4px;
+}
+
+.id-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  font-size: 0.78rem;
+  border: 1px solid var(--line-on-teal);
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: rgba(247,242,233,0.9);
+}
+
+/* Treatments */
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.treatment-card {
+  background: var(--paper);
+  padding: 36px 30px;
+}
+
+.treatment-num {
+  font-family: "Zilla Slab", serif;
+  color: var(--marigold-deep);
+  font-size: 0.9rem;
+}
+
+.treatment-card h3 {
+  margin-top: 18px;
+  font-size: 1.2rem;
+}
+
+.treatment-card p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+/* Reviews */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.review-card {
+  background: var(--paper-deep);
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+.review-stars {
+  color: var(--marigold-deep);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.review-quote {
+  margin-top: 14px;
+  font-family: "Zilla Slab", serif;
+  font-size: 1.15rem;
+}
+
+.review-meta {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Visit */
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.visit-block + .visit-block {
+  margin-top: 32px;
+}
+
+.visit-block h3 {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.visit-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.98rem;
+}
+
+.visit-cta {
+  background: var(--teal);
+  color: var(--paper);
+  padding: 40px;
+  border-radius: var(--radius);
+}
+
+.visit-cta h3 {
+  font-family: "Zilla Slab", serif;
+  font-size: 1.5rem;
+  max-width: 22ch;
+}
+
+.visit-cta p {
+  margin-top: 14px;
+  color: rgba(247,242,233,0.78);
+  max-width: 40ch;
+}
+
+.visit-cta .btn { margin-top: 26px; }
+
+/* Footer */
+.site-footer {
+  background: var(--teal-deep);
+  color: rgba(247,242,233,0.8);
+  padding: 72px 0 28px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--line-on-teal);
+}
+
+.footer-brand .brand-name { color: var(--paper); }
+.footer-brand .brand-est { color: rgba(247,242,233,0.55); }
+
+.footer-tagline {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  max-width: 40ch;
+  color: rgba(247,242,233,0.72);
+}
+
+.footer-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-col h4 {
+  font-size: 0.82rem;
+  color: rgba(247,242,233,0.55);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.footer-col a, .footer-col p {
+  display: block;
+  font-size: 0.92rem;
+  margin-bottom: 12px;
+  color: rgba(247,242,233,0.85);
+}
+
+.footer-col a:hover { color: var(--marigold); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  font-size: 0.8rem;
+  color: rgba(247,242,233,0.5);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .nav-toggle { display: block; }
+
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero-photo { order: -1; max-width: 320px; }
+  .hero-copy { padding-bottom: 40px; }
+  .hero-stats .wrap { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--line-on-teal); }
+  .stat:last-child { border-bottom: none; }
+
+  .physician-grid, .visit-grid { grid-template-columns: 1fr; }
+  .trait-list { grid-template-columns: 1fr; }
+
+  .treatments-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
